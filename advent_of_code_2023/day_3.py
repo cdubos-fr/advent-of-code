@@ -1,0 +1,13 @@
+from advent_of_code import AdventOfCodeExecutor
+
+class Day3(AdventOfCodeExecutor):
+    day = 3
+    year = 2023
+
+    def part_1(self) -> int:...
+    def part_2(self) -> int:...
+
+    @property
+    def default_data_part_1(self)-> tuple[str, int]:...
+    @property
+    def default_data_part_2(self)-> tuple[str, int]:...
