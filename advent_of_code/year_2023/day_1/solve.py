@@ -1,6 +1,7 @@
-from advent_of_code import AdventOfCodeExecutor
-from operator import itemgetter
 import itertools
+from operator import itemgetter
+
+from advent_of_code.base import AdventOfCodeExecutor
 
 
 getitem = itemgetter(0, -1)
@@ -28,11 +29,11 @@ class Day1(AdventOfCodeExecutor):
             for lines in self.data.splitlines()
         )
 
-    def part_2(self)-> int:
+    def part_2(self) -> int:
         total = 0
         for line in self.data.splitlines():
-            left_pos = (len(line) +1, len(line) +1)
-            right_pos = (-1, -1)
+            left_pos = (len(line) + 1, str(len(line) + 1))
+            right_pos = (-1, "-1")
             for digit in itertools.chain(DIGITS, DIGITS.values()):
                 pos = line.find(digit), DIGITS.get(digit, digit)
                 rpos = line.rfind(digit), DIGITS.get(digit, digit)
@@ -45,16 +46,21 @@ class Day1(AdventOfCodeExecutor):
 
     @property
     def default_data_part_1(self) -> tuple[str, int]:
-        return ("""1abc2
+        return (
+            """1abc2
             pqr3stu8vwx
             a1b2c3d4e5f
-            treb7uchet""", 142)
+            treb7uchet""", 142,
+        )
+
     @property
-    def default_data_part_2(self)-> tuple[str, int]:
-        return ("""two1nine
+    def default_data_part_2(self) -> tuple[str, int]:
+        return (
+            """two1nine
             eightwothree
             abcone2threexyz
             xtwone3four
             4nineeightseven2
             zoneight234
-            7pqrstsixteen""", 281)
+            7pqrstsixteen""", 281,
+        )
